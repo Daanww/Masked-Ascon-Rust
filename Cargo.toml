@@ -1,0 +1,12 @@
+[workspace]
+members = [
+    "ascon",
+    "ascon-aead",
+    "simpleserial-ascon"]
+resolver = "2"
+[profile.release]
+# or "z"
+opt-level = "z"
+# strip = true  # Automatically strip symbols from the binary.
+panic = "abort"
+

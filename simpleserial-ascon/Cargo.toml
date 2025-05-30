@@ -1,0 +1,29 @@
+[package]
+name = "simpleserial-ascon"
+version = "0.1.0"
+edition = "2021"
+# This build script configures the linker script to use.
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ascon = { path = "../ascon" }
+ascon-aead = { path = "../ascon-aead", default-features = false, features = [
+    "alloc", "rand_core",
+] }
+embedded-alloc = "0.5.1"
+embedded-hal = "=0.2.7"
+ibex-demo-system-pac = { path = "../ibex-demo-system/sw/rust/ibex-demo-system-pac" }
+panic-halt = "0.2.0"
+rand = { version = "0.8.5", default-features = false, features = [
+    "alloc",
+    "std_rng",
+    "nightly",
+] }
+rand_chacha = { version = "0.3.1", default-features = false }
+riscv = { version = "0.10.1", features = ["critical-section-single-hart"] }
+riscv-rt = "0.11.0"
+crc8-rs = "1.1"
+cobs-rs = "1.1.1"
+array-utils = { version = "0.1", features = ["superimpose", "drift", "resize"] }

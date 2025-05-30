@@ -1,0 +1,43 @@
+[package]
+name = "ascon-aead"
+version = "0.4.2"
+description = "Implementation of the authenticated encryption schemes Ascon-128, Ascon-128a, and Ascon-80pq"
+authors = [
+    "Sebastian Ramacher <sebastian.ramacher@ait.ac.at>",
+    "RustCrypto Developers",
+]
+edition = "2021"
+license = "Apache-2.0 OR MIT"
+readme = "README.md"
+repository = "https://github.com/RustCrypto/AEADs"
+keywords = ["AEAD", "ascon", "encryption"]
+categories = ["cryptography", "no-std"]
+rust-version = "1.65"
+
+[dependencies]
+aead = { version = "=0.6.0-pre.0", default-features = false }
+subtle = { version = "2", default-features = false }
+zeroize_crate = { package = "zeroize", version = "1.6", optional = true, default-features = false, features = [
+    "derive",
+] }
+ascon = { path = "../ascon"}
+rand_chacha = { version = "0.3.1", default-features = false }
+
+[dev-dependencies]
+hex-literal = "0.4"
+aead = { version = "=0.6.0-pre.0", features = ["alloc"] }
+
+[features]
+default = ["alloc", "getrandom"]
+std = ["aead/std", "alloc"]
+alloc = ["aead/alloc"]
+arrayvec = ["aead/arrayvec"]
+getrandom = ["aead/getrandom", "rand_core"]
+heapless = ["aead/heapless"]
+rand_core = ["aead/rand_core"]
+stream = ["aead/stream"]
+zeroize = ["zeroize_crate", "ascon/zeroize"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
