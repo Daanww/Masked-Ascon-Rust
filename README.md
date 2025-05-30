@@ -3,8 +3,8 @@
 This repository contains a masked implementation of Ascon written in Rust.
 
 - `simpleserial-ascon`: Main implementation.
-- `ascon`: Fork of the original Ascon library with masked functionality added.
-- `ascon-aead`: Fork of the original Ascon AEAD library with masked functionality added.
+- `ascon`: Fork of the original [Ascon](https://github.com/RustCrypto/sponges) library with masked functionality added.
+- `ascon-aead`: Fork of the original [Ascon AEAD](https://github.com/RustCrypto/AEADs) library with masked functionality added.
 
 ## Setup Instructions (Clean Ubuntu Install)
 
